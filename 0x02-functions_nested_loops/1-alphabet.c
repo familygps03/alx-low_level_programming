@@ -12,4 +12,6 @@ void print_alphabet(void)
 	{
 		_putchar(digit);
 	}
+
+	_putchar(26);
 }
