@@ -10,7 +10,7 @@ void print_times_table(int n)
 int count, product, output;
 if (n >= 0 && n <= 5)
 {
-for (count = 0; count  <= n; count++)
+for (count = 0; count <= n; count++)
 {
 _putchar('0');
 
