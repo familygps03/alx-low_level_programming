@@ -1,26 +1,30 @@
 #include <stdio.h>
 /**
-*main - prints out first 50
+*main - prints out first terms
 *fibonacci suit numbers
 *Return: return 0
 */
+
 int main(void)
 {
-int inc;
-unsigned long n1 = 0, n2 = 1, n3;
-for (inc = 0; inc < 50; inc++)
-{
-n3 = n1 + n2;
-printf("%lu", n3);
-n1 = n2;
-n2 = n3;
+	int term1 = 1;
+	int term2 = 2;
+	int sum = 0;
 
-if (inc == 49)
-printf("\n");
-else
-printf(", ");
+	while (term2 <= 4000000)
+	{
+	if (term2 % 2 == 0)
+	{
+	sum += term2;
+	}
 
+	int next_term = term1 + term2;
+
+	term1 = term2;
+	term2 = next_term;
+	}
+
+	printf("%d\n", sum);
+	return (0);
 }
 
-return (0);
-}
