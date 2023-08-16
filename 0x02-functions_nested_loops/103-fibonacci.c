@@ -6,16 +6,16 @@
 */
 int main(void)
 {
-int digit;
+int inc;
 unsigned long n1 = 0, n2 = 1, n3;
-for (digit = 0; digit < 50; digit++)
+for (inc = 0; inc < 50; inc++)
 {
 n3 = n1 + n2;
 printf("%lu", n3);
 n1 = n2;
 n2 = n3;
 
-if (digit == 49)
+if (inc == 49)
 printf("\n");
 else
 printf(", ");
