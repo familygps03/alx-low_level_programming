@@ -6,9 +6,9 @@
 *Return: returns 0
 */
 
-int k, p;
-
 int add(int k, int p)
 {
-return (k + p);
+	int result = k + p;
+
+	return (result);
 }
