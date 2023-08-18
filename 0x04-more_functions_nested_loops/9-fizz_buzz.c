@@ -8,18 +8,18 @@
 */
 int main(void)
 {
-int num;
-while (num++ < 100)
+int digit;
+while (digit++ < 100)
 
-if ((num % 3 == 0) && (num % 5 == 0))
+if ((digit % 3 == 0) && (digit % 5 == 0))
 printf("FizzBuzz ");
 
-else if ((num % 3) == 0)
+else if ((digit % 3) == 0)
 printf("Fizz ");
 
-else if ((num % 5) == 0)
+else if ((digit % 5) == 0)
 {
-if (num != 100)
+if (digit != 100)
 printf("Buzz ");
 
 else
@@ -27,7 +27,7 @@ printf("Buzz");
 }
 
 else
-printf("%d ", num);
+printf("%d ", digit);
 
 printf("\n");
 return (0);
