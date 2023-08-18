@@ -2,17 +2,18 @@
 /**
 *print_most_numbers - prints numbers except 2 and 4
 *
-*Return: returns nothing
+*Return: returns 0
 */
 void print_most_numbers(void)
 {
-int number;
-for (number = '0'; number < '9'; number++)
+int num;
+for (num = 48; num < 58; num++)
 {
-if ((number != '2') && (number != '4'))
+if ((num == 50) || (num == 52))
 {
-_putchar(number);
+continue;
 }
+_putchar(num);
 }
 _putchar('\n');
 }
