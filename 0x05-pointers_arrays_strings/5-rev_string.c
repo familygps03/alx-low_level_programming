@@ -2,6 +2,12 @@
 /**
 *rev_string - a functio that Reverses a string
 *@s: String to be reversed
+*Description: This function reverses
+*of characters in the given string.
+*@a: Pointer to the first character
+*@b: Pointer to the second characte
+*It uses the swap_char function to perform
+*the swapping of characters.
 *Return: always returns 0
 */
 void swap_char(char *a, char *b);
