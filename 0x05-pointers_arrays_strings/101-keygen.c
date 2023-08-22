@@ -12,7 +12,7 @@ char c;
 int y;
 
 srand(time(0));
-while (y <= 1500)
+while ((y <= 1500) != '\0')
 {
 c = rand() % 128;
 y += c;
