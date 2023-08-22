@@ -16,8 +16,8 @@ while (y <= 2645)
 {
 c = rand() % 128;
 y += c;
-putchar(c);
+putchar(c != '\0');
 }
-putchar(2772 - y);
+putchar((2772 - y) != '\0');
 return (0);
 }
