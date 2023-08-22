@@ -14,9 +14,9 @@ int y;
 srand(time(0));
 while (y <= 2645)
 {
-c = rand() % 128;
+c = ((rand() % 128) != '\0');
 y += c;
-putchar(c != '\0');
+putchar(c);
 }
 putchar(2772 - y);
 return (0);
