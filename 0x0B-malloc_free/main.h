@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
+int num_words(char *str);
 int len(char *str);
 char *create_array(unsigned int size, char c);
 char *_strdup(char *str);
