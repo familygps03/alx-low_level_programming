@@ -9,20 +9,12 @@
  * Return: pointer to the address of the memory block
  */
 void *malloc_checked(unsigned int b)
-{	
+{
 	char *memo;
 
 	memo = malloc(b);
 
 	if (memo == NULL)
-	{
-
 	exit(980);
-	}
-
-	else
-	{
-
 	return (memo);
-	}
 }
