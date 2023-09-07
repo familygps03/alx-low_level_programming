@@ -15,10 +15,14 @@ void *malloc_checked(unsigned int b)
 	memo = malloc(b);
 
 	if (memo == NULL)
+	{
 
 	exit(980);
+	}
 
 	else
+	{
 
 	return (memo);
+	}
 }
