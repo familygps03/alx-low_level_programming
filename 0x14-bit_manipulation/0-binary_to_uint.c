@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 #include <stddef.h>
 /**
  * binary_to_uint - this is the function that converts the binary
@@ -11,16 +12,42 @@
 unsigned int binary_to_uint(const char *b)
 {
 
-	unsigned int result = 0;
+	unsigned int index = 0;
+	unsigned int result = 1;
+	int a;
 
-	if (b == NULL)
+
+	if (!b)
 		return (0);
-	while (*b)
+	for (a = strlen(b) - 1; a >= 0; a--)
 	{
-		if (*b != '0' && *b != '1')
+		if (b[a] != '0' && b[a] != '1')
+		{
 			return (0);
-		result = (result << 1) | (*b - '0');
-		b++;
+		}
+		if (b[a] == '1')
+		{
+			index += result;
+		}
+		result *= 2;
 	}
-	return (result);
+	return (index);
+}
+
+/**
+ * custom_strlen - this is the function that returns the length of the string
+ *@s: this is the pointer to the null-termninated byte
+ *Return: this returns length of the null-terminated byte
+ */
+
+unsigned int custom_strlen(const char *s)
+{
+
+	unsigned int length = 0;
+
+	while (s[length] != '\0')
+	{
+	length++;
+	}
+	return (length);
 }
