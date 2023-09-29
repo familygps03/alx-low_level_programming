@@ -1,6 +1,24 @@
 #include "main.h"
 #include <string.h>
 #include <stddef.h>
+
+/**
+ * custom_strlen - this is the function that returns the length of the string
+ *@s: this is the pointer to the null-termninated byte
+ *Return: this returns length of the null-terminated byte
+ */
+
+unsigned int custom_strlen(const char *s)
+{
+
+        unsigned int length = 0;
+
+        while (s[length] != '\0')
+        {
+        length++;
+        }
+        return (length);
+}
 /**
  * binary_to_uint - this is the function that converts the binary
  * to the unsigned int
@@ -32,22 +50,4 @@ unsigned int binary_to_uint(const char *b)
 		result *= 2;
 	}
 	return (index);
-}
-
-/**
- * custom_strlen - this is the function that returns the length of the string
- *@s: this is the pointer to the null-termninated byte
- *Return: this returns length of the null-terminated byte
- */
-
-unsigned int custom_strlen(const char *s)
-{
-
-	unsigned int length = 0;
-
-	while (s[length] != '\0')
-	{
-	length++;
-	}
-	return (length);
 }
