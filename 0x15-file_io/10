@@ -1,0 +1,93 @@
+#include "main.h"
+
+/**
+* allocate_buffer - this is the function that allocates memory for
+* 1024-bytes buffer.
+*@file_name: this is the name the file that is processed.
+* Return: this returns the pointer to the newly-allocated buffer.
+*/
+
+char *allocate_buffer(const char *file_name);
+char *allocate_buffer(const char *file_name)
+{
+	char *buffer = malloc(1024);
+
+	if (!buffer)
+	{
+	dprintf(STDERR_FILENO, "Error: can not write to %s\n", file_name);
+	exit(EXIT_FAILURE);
+	}
+	return (buffer);
+}
+
+/**
+ * close_file_descriptor - this is the function that closes a file d
+ * escriptor and checks for errors.
+ *@fd: this is the file descriptor to be closed.
+ *@file_name: this is the name of the file being processed
+ */
+
+void close_file_descriptor(int fd, const char *file_name)
+ {
+       if (close(fd) == -1)
+        {
+	 dprintf(STDERR_FILENO, "Error: can not close fd %d\", fd);
+            exit(EXIT_FAILURE);
+ 	}
+}
+
+/**
+ * main - this is the function that copies the content of the
+ * file to the another file
+ *@argv: this is array of the arguments command-line
+ *@argc: this is the number of the arguments command-line
+ * Return: this returns zero when success
+ */
+
+int main(int argc, char *argv[])
+{
+
+	int source_fd, destination_fd, bytes_read, bytes_written;
+	char *buffer;
+
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp source_fd destination_fd\n");
+		exit(EXIT_FAILURE);
+	}
+	buffer = allocate_buffer(argv[2]);
+	source_fd = open(argv[1], O_RDONLY);
+
+	if (source_fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: can not read from source_fd %s\n", argv[1]);
+		free(buffer);
+		exit(EXIT_FAILURE);
+	}
+	destination_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
+	if (destination_fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error, can not write to %s\n", argv[2]);
+		free(buffer);
+		close_file_descriptor(source_fd, argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	do {
+		bytes_read = read(source_fd, buffer, 1024);
+
+		if (bytes_read == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: can not read from %s \n", argv[1]);
+			free(buffer);
+			close_file_descriptor(destination_fd, argv[2]);
+			close_file_descriptor(source_fd, argv[1]);
+			exit(EXIT_FAILURE);
+		}
+	} while (bytes_read > 0);
+
+	free(buffer);
+	close_file_descriptor(destination_fd, argv[2]);
+	close_file_descriptor(source_fd, argv[1];
+	return (EXIT_SUCCESS);
+}
