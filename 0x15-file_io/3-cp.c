@@ -40,13 +40,15 @@ void close_file(int fd)
 /**
  * main - this is function that copies the content of the file to
  *another file.
- * usage - this the function that dispalys instructions and
- *exits with a specified code. This function prints a usage message
- *to the standard error exits the program with the specified exit code
  * usage - this is function that is responsible for providing instructions
  * on how to use the program and then terminating the program a specified
  * exit code.it prints standardized usage message to the standard error stream
  * guiding users on the correct command-line format for program.
+ *
+ * Parameters: - @exit_code: An integer representing the exit code that
+ * the programwill use when terminating. This code is typically used to
+ * communicate the reason for the program's termination to the calling
+ * environment.
  *@exit_code: the exit code to be used when exiting the program
  *
  *
@@ -56,6 +58,7 @@ void close_file(int fd)
  * if the file_to or file_from can not be closed -exit code is 100.
  * Return: this returns 0 when success
  */
+
 void usage(int exit_code)
 {
 	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
